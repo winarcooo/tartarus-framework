@@ -1,0 +1,15 @@
+{
+    "name": "tartarus/framework",
+    "description": "a simple php framework using symfony2 component",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "winarkoandy",
+            "email": "winarcooo@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "symfony/http-foundation": "^3.0"
+    }
+}
