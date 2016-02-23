@@ -1,5 +1,5 @@
 <?php
-//tartarus/front.php
+//tartarus/web/front.php
 require_once __DIR__.'/../vendor/autoload.php';
 
 use Symfony\Component\HttpFoundation\Request;
@@ -17,7 +17,8 @@ $map = [
 $path = $request->getPathInfo();
 
 if(isset($map[$path])) {
-    require $map[$path];
+    include $map[$path];
+    $response->setContent(ob_get_clean());
 } else {
     $response->setStatusCode(404);
     $response->setContent('page not found');
