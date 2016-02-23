@@ -1,5 +1,4 @@
 <?php
-
-//require_once __DIR__.'/init.php';
+//tartarus/bye.php
 
 $response->setContent('bye!');
