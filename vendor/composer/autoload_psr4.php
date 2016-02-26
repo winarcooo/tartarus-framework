@@ -12,4 +12,5 @@ return array(
     'Symfony\\Component\\EventDispatcher\\' => array($vendorDir . '/symfony/event-dispatcher'),
     'Symfony\\Component\\Debug\\' => array($vendorDir . '/symfony/debug'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/Psr/Log'),
+    '' => array($baseDir . '/src'),
 );
