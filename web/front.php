@@ -29,7 +29,7 @@ try{
     
     $controller = $resolver->getController($request);
     $arguments = $resolver->getArguments($request, $controller);
-    
+
     $response = call_user_func_array($controller, $arguments);
 
 } catch (Routing\Exception\ResourceNotFoundException $e) {

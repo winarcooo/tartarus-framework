@@ -1,18 +1,12 @@
 <?php
 //tartarus/src/app.php
 use Symfony\Component\Routing;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\HttpKernel\Controller;
-
-interface ControllerResolverInterface
-{
-    function getController(Request $request);
-    function getArguments(Request $request, $controller);
-} 
 
 class leapYearController
 {
-    public function indexAction($request)
+    public function indexAction(Request $request)
     {
         if(is_leap_year($request->attributes->get('year'))){
             return new Response('Yep, this is a leap year!');
