@@ -11,6 +11,7 @@
     "minimum-stability": "dev",
     "require": {
         "symfony/http-foundation": "^3.0",
-        "symfony/routing": "^3.0"
+        "symfony/routing": "^3.0",
+        "symfony/http-kernel": "^3.0"
     }
 }
