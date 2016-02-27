@@ -12,7 +12,6 @@ $request = Request::CreateFromGlobals();
 $routes = include __DIR__.'/../src/app.php';
 
 $context = new Routing\RequestContext();
-echo '<pre>';print_r($context);die;
 $matcher = new Routing\Matcher\UrlMatcher($routes, $context);
 $resolver = new HttpKernel\Controller\ControllerResolver();
 
