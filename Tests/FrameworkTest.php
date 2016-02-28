@@ -17,4 +17,21 @@ class FrameworkTest extends \PHPUnit_Framework_TestCase
         
         $this->assertEquals(404, $response->getStatusCode());
     }
+    
+    private function getFrameworkForException($exception)
+    {
+        $matcher = $this->getMock('\Symfony\Component\Routing\Matcher\UrlMatcherInterface');
+        
+        $matcher->expects($this->getOne())
+                ->method('match')
+                ->will($this->throwException($exception));
+        
+        $matcher->expects($this->once())
+                ->method('getContent')
+                ->will($this->returnValue($this->getMock('Symfony\Component\Routing\RequestContext')));
+        
+        $resolver = $this->getMock('Symfony\Component\HttpKernel\Controller\ControllerResolverInterface');
+        
+        return new Framework($matcher, $resolver);
+    }
 }
