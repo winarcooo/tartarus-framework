@@ -1,5 +1,5 @@
 <?php
-//tartarus/web/front.php
+//tartarus-framework/web/front.php
 
 require_once __DIR__.'/../vendor/autoload.php';
 
