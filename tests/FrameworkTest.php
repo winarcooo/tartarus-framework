@@ -11,22 +11,22 @@ class FrameworkTest extends \PHPUnit_Framework_TestCase
 {
     public function TestNotFoundHandling()
     {
-        $framework = $this->getFrameworkForException(new ResourceNotFoundException);
+        $framework = $this->getFrameworkForException(new ResourceNotFoundException());
         $response = $framework->handle(new Request());
-        
+
         $this->assertEquals(404, $response->getStatusCode());
     }
 
     private function getFrameworkForException($exception)
     {
-        $matcher = $this->getMock('\Symfony\Component\Routing\Matcher\UrlMatcherInterface');
+        $matcher = $this->getMock('Symfony\Component\Routing\Matcher\UrlMatcherInterface');
 
-        $matcher->expects($this->getOne())
+        $matcher->expects($this->once())
                 ->method('match')
                 ->will($this->throwException($exception));
 
         $matcher->expects($this->once())
-                ->method('getContent')
+                ->method('getContext')
                 ->will($this->returnValue($this->getMock('Symfony\Component\Routing\RequestContext')));
 
         $resolver = $this->getMock('Symfony\Component\HttpKernel\Controller\ControllerResolverInterface');
