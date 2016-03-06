@@ -12,6 +12,7 @@ class FrameworkTest extends \PHPUnit_Framework_TestCase
     public function TestNotFoundHandling()
     {
         $framework = $this->getFrameworkForException(new ResourceNotFoundException());
+
         $response = $framework->handle(new Request());
 
         $this->assertEquals(404, $response->getStatusCode());
