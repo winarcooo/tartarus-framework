@@ -16,11 +16,11 @@ class Framework
     protected $resolver;
     protected $dispatcher;
 
-    public function __construct(EventDispatcher $dispatcher, UrlMatcherInterface $matcher, ControllerResolverInterface $resolver)
+    public function __construct(UrlMatcherInterface $matcher, ControllerResolverInterface $resolver)
     {
         $this->matcher = $matcher;
         $this->resolver = $resolver;
-        $this->dispatcher = $dispatcher;
+
     }
 
     public function handle(Request $request)
